@@ -142,6 +142,7 @@ int main()
     return 0;
 }
 ```
+![01.PNG](01.PNG)
 ### 第二題
 ```C
 #include <stdio.h>
