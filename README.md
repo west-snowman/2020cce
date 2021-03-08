@@ -143,6 +143,7 @@ int main()
 }
 ```
 ![01.PNG](01.PNG)
+
 ### 第二題
 ```C
 #include <stdio.h>
@@ -162,6 +163,8 @@ int main()
     return 0;
 }
 ```
+![02.PNG](02.PNG)
+
 ### 第三題
 ```C
 int main()
@@ -183,6 +186,8 @@ int main()
     return 0;
 }
 ```
+![03.PNG](03.PNG)
+
 ### 第四題
 ```C
 #include <stdio.h>
@@ -206,3 +211,4 @@ int main()
     return 0;
 }
 ```
+![04.PNG](04.PNG)
