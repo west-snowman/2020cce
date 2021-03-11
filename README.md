@@ -212,3 +212,96 @@ int main()
 }
 ```
 ![04.PNG](04.PNG)
+
+##第三週 實習課程式
+###
+##第三週 正課程式
+###第一題
+```C
+#include <stdio.h>
+int a[5]={0,10,20,30,40};
+int main()
+{
+    int *p = &a[2];
+    *p=222;
+    
+    p= p+2;
+    *p=666;
+    
+    p--;
+    *p=555;
+    
+}
+
+```
+###第二題
+```C
+#include <stdio.h>
+int a[5]={0,10,20,30,40};
+void printfAll()
+{
+    for(int i=0; i<5; i++){
+        printf("%d ",a[i]);
+    }
+    printf("\n");
+}
+int main()
+{
+    int *p = &a[2];
+    *p=222;
+    printfAll();
+
+    p= p+2;
+    *p=666;
+    printfAll();
+
+    p--;
+    *p=555;
+    printfAll();
+
+}
+
+```
+###第三題
+```C
+#include <stdio.h>
+int a[10]={0,10,20,30,40,50,60,70,80,90};
+void printfAll()
+{
+    for(int i=0; i<10; i++){
+        printf("%3d ",a[i]);
+    }
+    printf("\n");
+}
+int main()
+{
+    int *p = &a[2];
+    *p=222;
+    printfAll();
+
+    int *p2= p+4;
+    *p2=666;
+    printfAll();
+
+    p2--;
+    *p2=555;
+    printfAll();
+
+}
+```
+
+###第四題
+```C
+#include <stdio.h>
+#include <stdlib.h>
+
+int a[10];
+int main()
+{
+    int b[10];
+    
+    int *p=(int*) malloc( sizeof (int)*10);
+    
+    return 0;
+}
+```
