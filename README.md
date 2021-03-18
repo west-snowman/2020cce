@@ -459,10 +459,44 @@ int main()
 ## 第四週 正課程式
 ## 第一題
 ```C
+#include <stdio.h>
+struct DATA{///宣告
+    float x,y,z;///定義裡面有...
+} point1 ;
+
+///point1 是變數，長得像DATA
+///DATA裡面有 x,y,z
+
+int main()
+{
+    point1.x=3;///使用(裡面的值)
+    point1.y=5;///使用
+    point1.z=7;///使用
+    printf("%f %f %f\n",point1.x,point1.y,point1.z);
+}
 
 ```
 ## 第二題
 ```C
+#include <stdio.h>
+struct DATA{///宣告
+    float x,y,z;///定義裡面有...
+} point1 ;
+struct DATA points[5]; 
+///point1 是變數，長得像DATA
+///DATA裡面有 x,y,z
+
+int main()
+{
+    ///int b;
+    ///int a[5];
+    for(int i=0; i<5; i++){
+        point1.x=3;
+        point1.y=5;
+        point1.z=7;
+        printf("%f %f %f\n",point1.x,point1.y,point1.z);
+    }
+}
 
 ```
 ## 第三題
