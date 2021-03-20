@@ -485,7 +485,7 @@ int main()
     point1.y=5;///使用
     point1.z=7;///使用
     printf("%f %f %f\n",point1.x,point1.y,point1.z);
-    }
+    
 }
 
 ```
