@@ -455,7 +455,7 @@ int main()
 }
 ```
 ## 第四週 實習課程式
-## 基礎題：輸出從0到N的偶數
+### 基礎題：輸出從0到N的偶數
 ```C
 #include <stdio.h>
 int main()
@@ -469,7 +469,7 @@ int main()
 	
 }
 ```
-## 基礎題：基礎題：數字之首
+### 基礎題：基礎題：數字之首
 ```C
 #include <stdio.h>
 int main()
@@ -483,7 +483,7 @@ int main()
 	printf("%d",a);
 }
 ```
-## 基礎題：基礎題：字元判別
+### 基礎題：基礎題：字元判別
 ```C
 #include <stdio.h>
 int main()
@@ -496,7 +496,7 @@ int main()
 	else printf("O");
 }
 ```
-## 基礎題：分開整數的每個數字
+### 基礎題：分開整數的每個數字
 ```C
 #include <stdio.h>
 int main()
@@ -513,7 +513,7 @@ int main()
 	printf("%d   %d   %d   %d   %d",a,b,c,d,e);
 }
 ```
-## 進階題：星星等腰三角
+### 進階題：星星等腰三角
 ```C
 #include <stdio.h>
 int main()
@@ -535,7 +535,7 @@ int main()
 	}
 }
 ```
-## 進階題:函數找整數的最大數字
+### 進階題:函數找整數的最大數字
 ```C
 #include <stdio.h>
 
@@ -557,7 +557,7 @@ int main(void){
   return 0;
 }
 ```
-## 進階題：擲骰統計
+### 進階題：擲骰統計
 ```C
 #include <stdio.h>
 int main()
@@ -575,7 +575,7 @@ int main()
 	printf("1:%d\n2:%d\n3:%d\n4:%d\n5:%d\n6:%d\n",a,b,c,d,e,f);
 }
 ```
-## 進階題：除惡務盡
+### 進階題：除惡務盡
 ```C
 #include <stdio.h>
 int main()
@@ -593,7 +593,7 @@ int main()
 ```
 
 ## 第四週 正課程式
-## 第一題
+### 第一題
 ```C
 #include <stdio.h>
 struct DATA{///宣告
@@ -605,7 +605,7 @@ int main()
 
 }
 ```
-## 第二題
+### 第二題
 ```C
 #include <stdio.h>
 struct DATA{///宣告
@@ -625,7 +625,7 @@ int main()
 }
 
 ```
-## 第三題
+### 第三題
 ```C
 #include <stdio.h>
 struct DATA{///宣告
@@ -649,7 +649,7 @@ int main()
 }
 
 ```
-## 第四題
+### 第四題
 ```C
 #include <stdio.h>
 struct DATA{
@@ -671,7 +671,7 @@ int main()
 
 
 ```
-## 第五題
+### 第五題
 ```C
 #include <stdio.h>
 struct DATA{
