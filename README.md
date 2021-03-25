@@ -15,7 +15,7 @@ int main()
 
 }
 ```
-
+![01-1.1.PNG](01-1.1.PNG)
 ### 第二題 基礎題：找倍數
 ```C
 #include <stdio.h>
