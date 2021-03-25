@@ -612,6 +612,39 @@ int main()
 }
 ```
 ![04-1.8.PNG](04-1.8.PNG)
+## 第四週 實習課程式
+### 基礎題:
+```C
+
+```
+### 基礎題:
+```C
+
+```
+### 基礎題:
+```C
+
+```
+### 基礎題:
+```C
+
+```
+### 進階題:
+```C
+
+```
+### 進階題:
+```C
+
+```
+### 進階題:
+```C
+
+```
+### 進階題:
+```C
+
+```
 
 ## 第四週 正課程式
 ### 第一題
@@ -626,6 +659,7 @@ int main()
 
 }
 ```
+![04-2.1.PNG](04-2.1.PNG)
 ### 第二題
 ```C
 #include <stdio.h>
@@ -644,8 +678,8 @@ int main()
     printf("%f %f %f\n",point1.x,point1.y,point1.z);
     
 }
-
 ```
+![04-2.2.PNG](04-2.2.PNG)
 ### 第三題
 ```C
 #include <stdio.h>
@@ -668,8 +702,8 @@ int main()
         printf("%f %f %f\n",points[i].x,points[i].y,points[i].z);
     }
 }
-
 ```
+![04-2.3.PNG](04-2.3.PNG)
 ### 第四題
 ```C
 #include <stdio.h>
@@ -689,9 +723,8 @@ int main()
         printf("%f %f %f\n",points[i].x,points[i].y,points[i].z);
     }
 }
-
-
 ```
+![04-2.4.PNG](04-2.4.PNG)
 ### 第五題
 ```C
 #include <stdio.h>
@@ -715,6 +748,7 @@ int main()
 
 }
 ```
+![04-2.5.PNG](04-2.5.PNG)
 ## 第五週 正課程式
 ### 第一題
 ```C
@@ -731,8 +765,8 @@ int main()
     }
     printf("\n");
 }
-
 ```
+![05-2.1.PNG](05-2.1.PNG)
 ### 第二題
 ```C
 #include <stdio.h>
@@ -744,8 +778,8 @@ int main()
     printf("%s\n",line);
     printf("%s\n",line2);
 }
-
 ```
+![05-2.2.PNG](05-2.2.PNG)
 ### 第三題
 ```C
 #include <stdio.h>
@@ -764,8 +798,8 @@ int main()
     printf("你相信嗎? 這是 line4:==%s==\n", line4 );
 
 }
-
 ```
+![05-2.3.PNG](05-2.3.PNG)
 ### 第四題
 ```C
 #include <stdio.h>
@@ -780,9 +814,8 @@ int main()
 
 
 }
-
-
 ```
+![05-2.4.PNG](05-2.4.PNG)
 ### 第五題
 ```C
 #include <stdio.h>
@@ -797,5 +830,5 @@ int main()
         printf("\n");
     }
 }
-
 ```
+![05-2.5.PNG](05-2.5.PNG)
