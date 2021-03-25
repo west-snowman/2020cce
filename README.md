@@ -30,6 +30,7 @@ int main()
 	printf("%d\n",ans);
 }
 ```
+![01-1.2.PNG](01-1.2.PNG)
 ### 第三題 基礎題：因數個數
 ```C
 #include <stdio.h>
@@ -44,6 +45,7 @@ int main()
 	printf("%d\n",n);
 }
 ```
+![01-1.3.PNG](01-1.3.PNG)
 ### 第四題 基礎題：找零錢
 ```C
 #include <stdio.h>
@@ -56,6 +58,7 @@ int main()
 
 }
 ```
+![01-1.4.PNG](01-1.4.PNG)
 ### 第五題 進階題：漸增數列相加
 ```C
 #include <stdio.h>
@@ -70,6 +73,7 @@ int main()
 	printf("%d\n",ans);
 }
 ```
+![01-1.5.PNG](01-1.5.PNG)
 ### 第六題 進階題：A的B次方函數
 ```C
 #include <stdio.h>
@@ -90,6 +94,7 @@ int main(void)
 	return 0;
 }
 ```
+![01-1.6.PNG](01-1.6.PNG)
 ### 第七題 進階題：讀入整數反序列印
 ```C
 #include <stdio.h>
@@ -109,6 +114,7 @@ int main()
 	printf("\n");
 }
 ```
+![01-1.7.PNG](01-1.7.PNG)
 ### 第八題 進階題：分式化簡
 ```C
 #include <stdio.h>
@@ -124,7 +130,7 @@ int main()
 	printf("%d %d\n",a/n,b/n);
 }
 ```
-
+![01-1.8.PNG](01-1.8.PNG)
 
 ## 第二週 正課程式
 ### 第一題
@@ -229,6 +235,7 @@ int main()\
 
 }
 ```
+![03-1.1.PNG](03-1.1.PNG)
 ### 基礎題：計程車資計算 
 ```C
 #include <stdio.h>
@@ -245,6 +252,7 @@ int main()
 }
 
 ```
+![03-1.2.PNG](03-1.2.PNG)
 ### 基礎題：兩數間可被5整除的整數 
 ```C
 #include <stdio.h>
@@ -267,6 +275,7 @@ int main()
 	
 }
 ```
+![03-1.3.PNG](03-1.3.PNG)
 ### 基礎題：整數間最大距離
 ```C
 #include <stdio.h>
@@ -295,6 +304,7 @@ int main()
 	printf("%d\n",c-a);
 }
 ```
+![03-1.4.PNG](03-1.4.PNG)
 ### 進階題：大小寫轉換
 ```C
 #include <stdio.h>
@@ -319,6 +329,7 @@ int main()
 		
 }
 ```
+![03-1.5.PNG](03-1.5.PNG)
 ### 進階題：漸增數列相加  
 ```C
 #include <stdio.h>
@@ -333,6 +344,7 @@ int main()
 	printf("%d\n",ans);
 }
 ```
+![03-1.6.PNG](03-1.6.PNG)
 ### 進階題：計算陣列的平方值 
 ```C
 #include <stdio.h>
@@ -347,6 +359,7 @@ int main()
 	printf("\n");
 }
 ```
+![03-1.7.PNG](03-1.7.PNG)
 ### 進階題：2進位轉10進位
 ```C
 #include <stdio.h>
@@ -363,7 +376,7 @@ int main()
 	printf("%d\n",a*8+b*4+c*2+d*1);
 }
 ```
-
+![03-1.8.PNG](03-1.8.PNG)
 ## 第三週 正課程式
 ### 第一題
 ```C
@@ -469,6 +482,7 @@ int main()
 	
 }
 ```
+![04-1.1.PNG](04-1.1.PNG)
 ### 基礎題：基礎題：數字之首
 ```C
 #include <stdio.h>
@@ -483,6 +497,7 @@ int main()
 	printf("%d",a);
 }
 ```
+![04-1.2.PNG](04-1.2.PNG)
 ### 基礎題：基礎題：字元判別
 ```C
 #include <stdio.h>
@@ -496,6 +511,7 @@ int main()
 	else printf("O");
 }
 ```
+![04-1.3.PNG](04-1.3.PNG)
 ### 基礎題：分開整數的每個數字
 ```C
 #include <stdio.h>
@@ -513,6 +529,7 @@ int main()
 	printf("%d   %d   %d   %d   %d",a,b,c,d,e);
 }
 ```
+![04-1.4.PNG](04-1.4.PNG)
 ### 進階題：星星等腰三角
 ```C
 #include <stdio.h>
@@ -535,6 +552,7 @@ int main()
 	}
 }
 ```
+![04-1.5.PNG](04-1.5.PNG)
 ### 進階題:函數找整數的最大數字
 ```C
 #include <stdio.h>
@@ -557,6 +575,7 @@ int main(void){
   return 0;
 }
 ```
+![04-1.6.PNG](04-1.6.PNG)
 ### 進階題：擲骰統計
 ```C
 #include <stdio.h>
@@ -575,6 +594,7 @@ int main()
 	printf("1:%d\n2:%d\n3:%d\n4:%d\n5:%d\n6:%d\n",a,b,c,d,e,f);
 }
 ```
+![04-1.7.PNG](04-1.7.PNG)
 ### 進階題：除惡務盡
 ```C
 #include <stdio.h>
@@ -591,6 +611,7 @@ int main()
 	
 }
 ```
+![04-1.8.PNG](04-1.8.PNG)
 
 ## 第四週 正課程式
 ### 第一題
