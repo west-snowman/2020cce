@@ -896,3 +896,152 @@ int main()
 }
 ```
 ![05-2.5.PNG](05-2.5.PNG)
+## 第六週 實習課程式
+### 基礎題：整數轉換等級
+```C
+#include <stdio.h>
+int main()
+{
+	int n;
+	scanf("%d",&n);
+	
+	if(n>=90) printf("A");
+	else if(n>=80) printf("B");
+	else if(n>=70) printf("C");
+	else if(n>=60) printf("D");
+	else printf("F");
+}
+```
+### 基礎題：計算餘數
+```C
+#include <stdio.h>
+int main()
+{
+	int a,b;
+	scanf("%d%d",&a,&b);
+
+	printf("%d",a%b);
+}
+```
+### 基礎題：計程車資計算 
+```C
+#include <stdio.h>
+int main()
+{
+	int n,ans=100;
+	scanf("%d",&n);
+	
+	if(n<1500) printf("%d",ans);
+	else if(n>1500){ 
+		n=n-1500;
+		ans+=n/250*5;
+	
+		if(n%250!=0) ans=ans+5;
+	}
+	printf("%d",ans);
+	
+
+}
+
+```
+### 基礎題：找零錢
+```C
+#include <stdio.h>
+int main()
+{
+	int n,a,b,c,d;
+	scanf("%d",&n);
+	
+	a=n/50;
+	b=n%50/10;
+	c=n%10/5;
+	d=n%5;
+	
+	printf("%d=50*%d+10*%d+5*%d+1*%d",n,a,b,c,d);
+
+}
+```
+### 進階題：計算一列整數的總和
+```C
+#include <stdio.h>
+int main()
+{
+	int a[100],n=0,ans=0;
+	
+	for(int i=0; i<100; i++){
+		scanf("%d",&a[i]);
+		if(a[i]==999) break;
+		n++;
+	}
+	
+	for(int i=0; i<n; i++){
+		printf("Enter an integer ( 999 to end ): \n");
+		ans=ans+a[i];
+	}
+	
+	printf("Enter an integer ( 999 to end ): \n");
+	printf("The total is: %d",ans);
+}
+```
+### 進階題：判斷大小
+```C
+#include <stdio.h>
+int f(int a,int b){
+	int n;
+	if(a<b) n=-1;
+	else if(a==b) n=0;
+	else n=1;
+	return n; 
+}
+
+int main(){
+    int a, b;
+    scanf("%d %d", &a, &b);
+    printf("%d",f(a,b));
+    return 0;
+}
+
+```
+
+### 進階題：陣列找出現次數 
+```C
+#include <stdio.h>
+int main()
+{
+	int a[10],b=0,n,ans=0;
+	for(int i=0; i<10; i++){
+		scanf("%d",&a[i]);
+		if(a[i]==0) break;
+		b++;
+	}
+	
+	scanf("%d",&n);
+	for(int i=0; i<b; i++){
+		if(a[i]==n) ans++;
+	}
+	
+	printf("%d\n",ans);
+}
+```
+
+### 進階題：函數反序排列數字 
+```C
+#include <stdio.h>
+int f(int n)
+{
+	int a;
+	if(n>=1000) a=a/1000 +a%1000/100*10 +a%100/10*100 +a%10*1000;
+	else if(n>=100) a=a/100 +a%100/10*10 +a%10*100;
+	else if(n>=10) a=n/10 +n%10*10;
+	else a=n;
+	return a;
+}
+int main()
+{
+	int n;
+	scanf("%d",&n);
+	printf("%d\n",f(n));
+	return 0;
+}
+```
+
