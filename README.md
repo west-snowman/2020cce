@@ -612,39 +612,6 @@ int main()
 }
 ```
 ![04-1.8.PNG](04-1.8.PNG)
-## 第四週 實習課程式
-### 基礎題:
-```C
-
-```
-### 基礎題:
-```C
-
-```
-### 基礎題:
-```C
-
-```
-### 基礎題:
-```C
-
-```
-### 進階題:
-```C
-
-```
-### 進階題:
-```C
-
-```
-### 進階題:
-```C
-
-```
-### 進階題:
-```C
-
-```
 
 ## 第四週 正課程式
 ### 第一題
@@ -748,7 +715,104 @@ int main()
 
 }
 ```
+
 ![04-2.5.PNG](04-2.5.PNG)
+## 第五週 實習課程式
+### 基礎題:計算商數 
+```C
+#include <stdio.h>
+int main()
+{
+	int a,b;
+	scanf("%d%d",&a,&b);
+	
+	printf("%d\n",a/b);
+
+}
+```
+### 基礎題:三數極大
+```C
+#include <stdio.h>
+int main()
+{
+	int a,b,c;
+	scanf("%d%d%d",&a,&b,&c);
+	
+	if(a>b){
+		int temp=a;
+		a=b;
+		b=temp;
+	}
+	if(b>c){
+		int temp=b;
+		b=c;
+		c=temp;
+	}
+	if(a>c){
+		int temp=c;
+		a=c;
+		c=temp;
+	}
+	printf("%d\n",c);
+
+}
+```
+### 基礎題:N數之和
+```C
+#include <stdio.h>
+int main()
+{
+	int n,a,ans=0;
+	scanf("%d",&n);
+	
+	for(int i=1; i<=n; i++){
+		scanf("%d",&a);
+		ans=ans+a;
+	}
+	printf("%d\n",ans);
+}
+```
+### 進階題:絕對值函數 
+```C
+#include <stdio.h>
+int f(int n)
+{
+	int a;
+	if(n<1) a=n*(-1);
+	else if(n>1) a=a;
+	return a;
+}
+
+int main(void)
+{
+	int n;
+	scanf("%d",&n);
+	printf("[%d]",f(n));
+	return 0;
+}
+```
+### 進階題:反序數字 
+```C
+#include <stdio.h>
+int main()
+{
+	int a,b;
+	scanf("%d",&a);
+	
+	if(a<100)
+	b=a/10+a%10*10;
+	
+	else if(a<1000)
+	b=a/100+a%100/10*10+a%10*100;
+	
+	else if(a<10000)
+	b=a/1000+a%1000/100*10+a%100/10*100+a%10*1000;
+	
+	printf("%d+%d=%d\n",a,b,a+b);
+
+}
+
+```
 ## 第五週 正課程式
 ### 第一題
 ```C
