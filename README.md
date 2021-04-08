@@ -1070,8 +1070,8 @@ int main()
 		scanf("%s",a[i]);
 	}
 
-	qsort(   a,    n,      10,      compare);
-//快速排列( 陣列, n個, 每個有多大,比較的函式)
+	qsort(   a,    n,      10,        compare);
+//快速排列(     陣列,  n個,  每個有多大,  比較的函式)
 
 	for(int i=0; i<n; i++){
 		printf("%s\n",a[i]);
