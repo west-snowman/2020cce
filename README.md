@@ -1120,7 +1120,7 @@ int main()
 }
 ```
 ## 第八週正課
-### 字串排序
+### 字串排序.1
 ```C
 #include <stdio.h>
 #include <string.h>
@@ -1144,6 +1144,7 @@ int main()
 }
 ```
 ![08-2.1.PNG](08-2.1.PNG)
+### 字串排序.2
 ```C
 #include <stdio.h>
 #include <string.h>
@@ -1182,6 +1183,7 @@ int main()
 }
 ```
 ![08-2.2.PNG](08-2.2.PNG)
+### 字串排序.3
 ```C
 #include <string.h>
 #include <stdlib.h>
