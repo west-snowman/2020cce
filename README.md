@@ -1274,7 +1274,7 @@ int main()
 }
 ```
 ## 第十週 正課程式
-### UVA 10008
+### UVA 10008(1)
 ```C
 #include <stdio.h>
 char line[10000];
