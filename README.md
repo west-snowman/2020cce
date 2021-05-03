@@ -1273,6 +1273,157 @@ int main()
 	
 }
 ```
+## 第十週 實習課程式
+### 基礎題：平年月份的天數
+```C
+#include <stdio.h>
+int main()
+{
+	int n;
+	scanf("%d",&n);
+	
+	if(n==1) printf("31");
+	else if(n==2) printf("28");
+	else if(n==3) printf("31");
+	else if(n==4) printf("30");
+	else if(n==5) printf("31");
+	else if(n==6) printf("30");
+	else if(n==7) printf("31");
+	else if(n==8) printf("31");
+	else if(n==9) printf("30");
+	else if(n==10) printf("31");
+	else if(n==11) printf("30");
+	else if(n==12) printf("31");
+
+}
+```
+### 基礎題：將一連串整數相乘
+```C
+#include <stdio.h>
+int main()
+{
+	int n,ans=1,a;
+	scanf("%d",&n);
+	printf("Enter the number of values to be processed: ");
+	
+	for(int i=0; i<n; i++){
+		scanf("%d",&a);
+		printf("Enter a value: ");
+		ans=ans*a;
+	}
+	
+	printf("Product of the %d values is %d",n,ans);
+}
+```
+### 基礎題：判別正方形
+```C
+#include <stdio.h>
+int main()
+{
+	int a,b;
+	printf("Enter two numbers:  ");
+	scanf("%d%d",&a,&b);
+	
+	if(a==b) printf("It is a square ");
+	else if( a>b || a<b ) printf("It is not a square ");
+
+}
+```
+### 基礎題：計算餘數及列印 
+```C
+#include <stdio.h>
+int main()
+{
+	int x,y;
+	printf("Enter two numbers: ");
+	scanf("%d%d",&x,&y);
+	
+	printf("The remainder is %d\n",x%y);
+
+}
+```
+### 進階題：判斷迴文
+```C
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+	char n[81];
+	int a=0;
+	scanf("%s",n);
+	
+	//strlen(n)==10
+	for(int i=0; i<strlen(n); i++){
+		if(n[i]!=n[strlen(n)-1-i]){
+			a=1;
+			printf("NO");
+			break;
+		}
+	}
+	if(a==0) printf("YES");
+	
+
+}
+```
+### 進階題：函數判斷質數
+```C
+#include <iostream>
+using namespace std;
+int prime(int n)
+{
+	int a;
+	for(int i=2; i<n; i++){
+		if(n%i==0){ 
+			a=0;
+			break;
+		}
+		else a=1;
+	}
+	return a;
+
+}
+	
+int main(){
+  int n;cin>>n;
+  cout<<"["<<prime(n)<<"]";
+  return 0;
+}
+```
+### 進階題：字串長度
+```C
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+	char a[100],b[100],x,y;
+	scanf("%s%s",a,b);
+	
+	
+	
+	if(strlen(a)>strlen(b)) printf("1");
+	else if(strlen(a)<strlen(b)) printf("-1");
+	else printf("%d",strcmp(a,b));
+}
+```
+### 進階題：最大公因數gcd 
+```C
+#include <stdio.h>
+int main()
+{
+	int a,b,n;
+	printf("Enter two integers: \n");
+	scanf("%d%d",&a,&b);
+	
+	for(int i=1; i<=b; i++){
+		if(a%i==0 && b%i==0) n=i;
+	}
+	
+	printf("The greatest common divisor of %d and %d is %d\n",a,b,n);
+
+}
+```
 ## 第十週 正課程式
 ### UVA 10008(1)
 ```C
@@ -1356,3 +1507,4 @@ int main()
 }
 ```
 ![UVA10008(2).PNG](UVA10008(2).PNG)
+## 第十一週 實習課程式
