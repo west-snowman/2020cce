@@ -1508,7 +1508,185 @@ int main()
 ```
 ![UVA10008(2).PNG](UVA10008(2).PNG)
 ## 第十一週 實習課程式
-### 
+### 基礎題：兩數平方差
+```C
+#include <stdio.h>
+int main()
+{
+	int a,b,ans;
+	scanf("%d%d",&a,&b);
+	
+	ans=(a*a)-(b*b);
+	printf("%d",ans);
+
+}
+```
+### 基礎題：零錢總額
+```C
+#include <stdio.h>
+int main()
+{
+	int a,b,c,ans;
+	scanf("%d%d%d",&a,&b,&c);
+	
+	ans=a*50+b*5+c*1;
+	printf("%d",ans);
+}
+```
+### 基礎題：幾日為星期幾
+```C
+#include <stdio.h>
+int main()
+{
+	int n;
+	scanf("%d",&n);
+	
+	if(n%7==1) printf("0");
+	else if(n%7==2) printf("1");
+	else if(n%7==3) printf("2");
+	else if(n%7==4) printf("3");
+	else if(n%7==5) printf("4");
+	else if(n%7==6) printf("5");
+	else if(n%7==0) printf("6");
+
+}
+```
+### 基礎題：整數二元四則運算
+```C
+#include <stdio.h>
+int main()
+{
+	int a,b;
+	char n;
+	scanf("%d ",&a);
+	scanf("%c ",&n);
+	scanf("%d",&b);
+	
+	if(n=='+') 	printf("%d",a+b);
+	else if(n=='-') printf("%d",a-b);
+	else if(n=='*') printf("%d",a*b);
+	else if(n=='/') printf("%d",a/b);
+	
+	
+}
+```
+### 進階題：兩數間可被7整除的數
+```C
+#include <stdio.h>
+int main()
+{
+	int a,b;
+	scanf("%d%d",&a,&b);
+	
+	if(a<b){
+		for(int i=a; i<b; i++){
+			if(i%7==0) printf("%d ",i);
+		}
+	}
+	else if(a>b){
+		for(int i=b; i<a; i++){
+			if(i%7==0) printf("%d ",i);
+		}
+	}
+}
+```
+### 進階題：奇數之和
+```C
+#include <stdio.h>
+int main()
+{
+	int n,ans=0;
+	scanf("%d",&n);
+	
+	if(n%2!=0){
+		for(int i=1; i<=n; i+=2){
+			ans=ans+i;
+		}
+	}
+	
+	else if(n%2==0){
+		for(int i=1; i<n; i+=2){
+			ans=ans+i;
+		}
+	}
+	
+	printf("%d",ans);
+
+}
+```
+### 進階題：利用自訂函式最大值max與最小值min求出兩者之差
+```C
+#include<iostream>
+using namespace std;
+int max(int a,int b,int c,int d)
+{
+	if(a>b){
+		int temp=a;
+			a=b;
+			b=temp;
+	}
+	if(b>c){
+		int temp=b;
+			b=c;
+			c=temp;
+	}
+	if(c>d){
+		int temp=c;
+			c=d;
+			d=temp;
+	}
+	if(a>d){
+		int temp=a;
+			a=d;
+			d=temp;
+	}
+	return d;
+}
+int min(int a,int b,int c,int d){
+	if(a<b){
+		int temp=a;
+		a=b;
+		b=temp;
+	}
+	if(b<c){
+		int temp=b;
+			b=c;
+			c=temp;
+	}
+	if(c<d){
+		int temp=c;
+			c=d;
+			d=temp;
+	}
+	if(a<d){
+		int temp=a;
+			a=d;
+			d=temp;
+	}
+	return d;
+}
+int main(){
+  int a,b,c,d;cin>>a>>b>>c>>d;
+  cout<<(max(a,b,c,d)-min(a,b,c,d));
+  return 0;
+}
+
+```
+### 進階題：字串中的數字個數
+```C
+#include <stdio.h>
+int main()
+{
+	int n=0;
+	char a[81];
+	scanf("%s",a);
+	
+	for(int i=0; a[i];i++){
+		if(a[i]>='0' && a[i]<='9') n++;
+	}
+	printf("%d",n);
+}
+```
 ## 第十一週 正課程式
 ### 第一題
 ```C
