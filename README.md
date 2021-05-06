@@ -1508,3 +1508,102 @@ int main()
 ```
 ![UVA10008(2).PNG](UVA10008(2).PNG)
 ## 第十一週 實習課程式
+### 
+## 第十一週 正課程式
+### 第一題
+```C
+#include <stdio.h>
+unsigned char c;
+typedef unsigned char uchar;
+uchar d;
+int main()
+{
+    c ='A';
+    d = c;
+    printf("%c",d);
+}
+```
+### 第二題
+```C
+#include <stdio.h>
+typedef struct data{
+    char c;
+    int ans;
+}DATA;
+///struct data listA;
+DATA listA;
+
+int main()
+{
+    listA.c = 'A';
+    listA.ans = 1;
+
+    printf("%c %d\n", listA.c, listA.ans);
+}
+```
+### 第三題
+```C
+#include <stdio.h>
+#include <stdlib.h>
+int compare(const void *p1, const void *p2)
+{   ///轉成｢整數的指標｣ / 望遠鏡，準星看到的整數
+    int d1 = *( (int*)p1 );
+    int d2 = *( (int*)p2 );
+    if(d1>d2) return 1;
+    if(d1==d2) return 0;
+    if(d1<d2) return -1;
+}
+
+int a[10]={4,8,3,7,5,2,9,1,6,10};
+int main()
+{
+    qsort( a, 10, sizeof(int), compare);
+    for(int i=0; i<10; i++){
+        printf("%d ",a[i]);
+    }
+}
+```
+### 第四題
+```C
+#include <stdio.h>
+#include <stdlib.h> //qsort()
+#include <string.h> //strcmp()
+char name[2000][80];
+char others[80];
+int compare( const void *p1, const void *p2 )
+{
+	char *s1 = (char*)p1;
+	char *s2 = (char*)p2;
+	if( strcmp(s1,s2) > 0 ) return 1;
+	if( strcmp(s1,s2) ==0 ) return 0;
+	if( strcmp(s1,s2) < 0 ) return -1;
+	//return strcmp( s1, s2 );
+	//return strcmp( (char*)p1,(char*)p2 );
+
+}
+int main()
+{
+	int N;
+	scanf("%d", &N);
+	for(int i=0; i<N; i++){
+		scanf("%s", name[i] );
+		gets( others );
+	}
+	
+	qsort( name, N, 80, compare );
+	
+	printf("%s ", name[0] );//開頭
+	int ans=1;
+	
+	for(int i=0; i<N-1; i++){
+		if( strcmp( name[i], name[i+1] ) == 0 ){
+			ans++;
+		}else{
+			printf("%d\n", ans );//結尾		
+			printf("%s ", name[i+1] );//新的開頭
+			ans=1;
+		}
+	}
+	printf("%d\n", ans );//結尾
+}
+```
