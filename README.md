@@ -1785,6 +1785,177 @@ int main()
 	printf("%d\n", ans );//結尾
 }
 ```
+## 第十二週 實習課程式
+### 基礎題：找千位數
+```C
+#include <stdio.h>
+int main()
+{
+	int n;
+	scanf("%d",&n);
+
+	if(n>=1000 && n<10000) printf("%d",n/1000);
+	else if(n>=10000 && n<100000) printf("%d",(n/1000)%10);
+	else if(n>=100000 && n<1000000) printf("%d",(n/1000)%10);
+	else printf("0");
+}
+```
+![12-1.1.PNG](12-1.1.PNG)
+### 基礎題：計算立方值
+```C
+#include <stdio.h>
+int ANS(int n)
+{
+	int a;
+	a=n*n*n;
+	return a;
+}
+int main()
+{
+	int n;
+	for(int i=1; i<=6; i++){
+		scanf("%d ",&n);
+		printf("%d\n",ANS(n));
+	}
+}
+```
+![12-1.2.PNG](12-1.2.PNG)
+### 基礎題：三數最小 
+```C
+#include <stdio.h>
+int MIN(int a,int b,int c)
+{
+	if(a>b){
+		int temp=a;
+		    a=b;
+		    b=temp;
+	}
+	if(b>c){
+		int temp=b;
+		    b=c;
+		    c=temp;
+	}
+	if(a>c){
+		int temp=a;
+		    a=c;
+		    c=temp;
+	}
+	if(a>b){
+		int temp=a;
+		    a=b;
+		    b=temp;
+	}
+	return a;
+}
+int main()
+{
+	int a,b,c;
+	scanf("%d%d%d",&a,&b,&c);
+	printf("%d\n",MIN(a,b,c));
+}
+```
+![12-1.3.PNG](12-1.3.PNG)
+### 基礎題：剩餘啤酒有幾手又幾瓶
+```C
+#include <stdio.h>
+int main()
+{
+	int p,d,n;
+	scanf("%d%d",&p,&d);
+
+	n = p-(d*6);
+
+	printf("%d %d",n/6,n%6);
+}
+```
+![12-1.4.PNG](12-1.4.PNG)
+### 進階題：三數組合
+```C
+#include <stdio.h>
+int main()
+{
+	int a,b,c,n;
+	scanf("%d%d%d",&a,&b,&c);
+	if(c>b){
+		int temp=c;
+			c=b;
+			b=temp;
+	}
+	if(b>a){
+		int temp=b;
+			b=a;
+			a=temp;
+	}
+	if(c>a){
+		int temp=c;
+			c=a;
+			a=temp;
+	}
+	if(c>b){
+		int temp=c;
+			c=b;
+			b=temp;
+	}
+	n = a*100+b*10+c;
+	printf("%d",n+1);
+}
+```
+![12-1.5.PNG](12-1.5.PNG)
+### 進階題：計算質數個數
+```C
+#include <stdio.h>
+int main()
+{
+	int a,b,n=0,ans=0;
+	scanf("%d%d",&a,&b);
+
+		for(int i=a; i<=b; i++){
+			for(int j=2; j<i; j++){
+				if(i%j==0) n++;
+			}
+			if(n==0)ans++;
+			n=0;
+		}
+
+	printf("%d",ans);
+}
+```
+![12-1.6.PNG](12-1.6.PNG)
+### 進階題：判斷平方數
+```C
+#include <stdio.h>
+int main()
+{
+	int n,a=0;
+	scanf("%d",&n);
+
+	for(int i=2; i<n; i++){
+		if( i*i==n && n%i==0 ){
+			printf("%d",i);
+			a=i;
+			break;
+		}
+	}
+	if(a==0) printf("0");
+
+}
+```
+![12-1.7.PNG](12-1.7.PNG)
+### 進階題：數字個數
+```C
+#include <stdio.h>
+int main()
+{
+	int n,ans=0;
+
+	for(int i=1; i<=10; i++){
+		scanf("%d",&n);
+		if(n!=0) ans++;
+	}
+	printf("%d",ans);
+}
+```
+![12-1.8.PNG](12-1.8.PNG)
 ## 第十二週 正課程式
 ### UVA 10062
 ```C
