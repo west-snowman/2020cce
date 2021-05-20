@@ -2117,6 +2117,153 @@ int main()
 }
 ```
 ![UVA10321(2).PNG](UVA10321(2).PNG)
+## 第十三週 實習課程式
+### 基礎題：輸入n (n>0)， 求n之所有因數和
+```C
+#include <stdio.h>
+int main()
+{
+	int n,ans=0;
+	scanf("%d",&n);
+	
+	for(int i=1; i<=n; i++){
+		if(n%i==0) ans+=i;
+	}
+	
+	printf("%d",ans);
+}
+```
+### 基礎題：判斷座標的象限
+```C
+#include <stdio.h>
+int main()
+{
+	int x,y;
+	scanf("%d%d",&x,&y);
+	
+	if(x>0 && y>0) printf("1\n");
+	else if(x<0 && y>0) printf("2\n");
+	else if(x<0 && y<0) printf("3\n");
+	else if(x>0 && y<0) printf("4\n");
+
+}
+```
+### 基礎題：正整數平方總和
+```C
+#include <stdio.h>
+int main()
+{
+	int n,ans=0;
+	scanf("%d",&n);
+	
+	for(int i=1; i<=n; i++){
+		ans=ans+(i*i);
+	}
+	printf("%d",ans);
+}
+```
+### 進階題：兩數之間的3倍數總和
+```C
+#include <stdio.h>
+int main()
+{
+	int a,b,ans=0;
+	scanf("%d%d",&a,&b);
+	
+	if(a<b){
+		for(int i=a; i<=b; i++){
+			if(i%3==0) ans+=i;
+		}
+	}
+	else if(a>b){
+		for(int i=b; i<=a; i++){
+			if(i%3==0) ans+=i;
+		}
+	}
+	printf("%d",ans);
+}
+```
+### 進階題：10數排序，從大到小排好
+```C
+#include <stdio.h>
+int main()
+{
+	int a[10];
+	for(int i=0; i<10; i++){
+		scanf("%d",&a[i]);
+	}
+	
+	for(int i=0; i<10; i++){
+		for(int j=i+1; j<10; j++){
+			if(a[i]<a[j]){
+				int temp=a[i];
+					a[i]=a[j];
+					a[j]=temp;
+			}
+		}
+	}
+	for(int i=0; i<10; i++){
+		printf("%d ",a[i]);
+	}
+}
+```
+### 進階題：區間測速-超速之王
+```C
+#include <stdio.h>
+int main()
+{
+	int n,a=999999,b,time=3600*1.2;
+	for(int i=0; i<10; i++){
+		scanf("%d",&n);
+		if(n<a){
+			a=n;
+			b=i+1;
+		}
+	}
+	printf("%d %d",b,time/a);
+}
+```
+### 進階題：求兩數之最大公因數
+```C
+#include<iostream>
+using namespace std;
+int GCD(int a, int b){
+	int n=0;
+	if(a<b){
+		for(int i=2; i<=b; i++){
+			if(a%i==0 && b%i==0) n=i;
+		}
+		if(n==0) n=1;
+	}
+	else if(a>b){
+		for(int i=2; i<=a; i++){
+			if(a%i==0 && b%i==0) n=i;
+		}
+		if(n==0) n=1;
+	}
+	return n;
+}
+int main(){
+  int a,b;cin>>a>>b;
+  cout<<GCD(a,b)<<endl;
+  return 0;
+}
+```
+### 進階題：求11 +22+33+…+nn
+```C
+#include <stdio.h>
+int main()
+{
+	int n,a,ans=0;
+	scanf("%d",&n);
+	a=11*n;
+	
+	for(int i=11; i<=a; i+=11){
+		ans=ans+i;
+	}
+	printf("%d",ans);
+}
+```
 ## 第十三週 正課程式
 ## 互動程式設計
 ### 第一題
