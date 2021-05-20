@@ -2117,3 +2117,120 @@ int main()
 }
 ```
 ![UVA10321(2).PNG](UVA10321(2).PNG)
+## 第十三週 正課程式
+## 互動程式設計
+### 第一題
+```C
+size(1024,400);
+background(122,200,255);
+```
+![13-2.1.PNG](13-2.1.PNG)
+### 第二題
+```C
+void setup(){//只做一次設定
+  size(1024,400);
+}
+void draw(){//互動版本，每秒畫60次
+  if(mousePressed) background(255,0,255);//按下次紫色
+  else background(122,200,255);//否則，藍色
+}
+```
+![13-2.2.PNG](13-2.2.PNG)
+### 第三題
+```C
+void setup(){//只做一次設定
+  size(1024,400);
+}
+void draw(){//互動版本，每秒畫60次
+  if(mousePressed) background(255,0,255);//按下次紫色
+  else background(122,200,255);//否則，藍色
+  text(a, 512, 200);//畫出文字
+}
+
+int a=0;
+void mousePressed(){
+  a++;
+}
+```
+![13-2.3.PNG](13-2.3.PNG)
+### 第四題
+```C
+void setup(){//只做一次設定
+  size(1024,400);
+}
+void draw(){//互動版本，每秒畫60次
+  if(mousePressed) background(255,0,255);//按下次紫色
+  else background(122,200,255);//否則，藍色
+  textSize(36);//文字的大小
+  text("中文壞掉Now a is" + a, 512, 200);//畫出文字
+}
+
+int a=0;//計算點幾次
+void mousePressed(){
+  a++;
+}
+```
+![13-2.4.PNG](13-2.4.PNG)
+### 第五題
+```C
+void setup(){
+  size(1024,400);
+}
+void draw(){
+  background(#1EFA27);//色碼
+  int s = second();  //Values from 0 - 59
+  int m = minute();  //Values from 0 - 59
+  int h = hour();    //Values from 0 - 23
+  textSize(80);
+  text( h + ":" + m + ":" + s , 100, 200);
+  //   數字 字串 數字 字串 數字
+ 
+}  
+```
+![13-2.5.PNG](13-2.5.PNG)
+### 第六題
+```C
+void setup(){
+  size(1024,400);
+  textFont( createFont("標楷體",80));
+}
+void draw(){
+  background(#1EFA27);//色碼
+  int s = second();  //Values from 0 - 59
+  int m = minute();  //Values from 0 - 59
+  int h = hour();    //Values from 0 - 23
+  textSize(80);
+  text( h + ":" + m + ":" + s , 100, 200);
+  //   數字 字串 數字 字串 數字
+  int total = s + 60*m + 60*60*h;//現在總秒數
+  int closeH=17, closeM=40,closeS=0;//下課的精準時間
+  int total2 = closeS + 60*closeM + 60*60*closeH;//目標總秒數
+  int ans = total2 - total;
+  text("剩下幾秒:" + ans, 100, 100);
+}  
+```
+![13-2.6.PNG](13-2.6.PNG)
+### 第七題
+```C
+void setup(){
+  size(1024,400);
+  textFont( createFont("標楷體",80));
+}
+void draw(){
+  background(#1EFA27);//色碼
+  int s = second();  //Values from 0 - 59
+  int m = minute();  //Values from 0 - 59
+  int h = hour();    //Values from 0 - 23
+  textSize(80);
+  text( h + ":" + m + ":" + s , 100, 200);
+  //   數字 字串 數字 字串 數字
+  int total = s + 60*m + 60*60*h;//現在總秒數
+  int closeH=17, closeM=40,closeS=0;//下課的精準時間
+  int total2 = closeS + 60*closeM + 60*60*closeH;//目標總秒數
+  int ans = total2 - total;
+  text("剩下幾秒:" + ans, 100, 100);
+  int ansH=ans/60/60%60, ansM=ans/60%60, ansS=ans%60;//找零
+  text( ansH + ":" + ansM + ":" + ansS ,100 ,300);
+}  
+```
+![13-2.7.PNG](13-2.7.PNG)
