@@ -2381,3 +2381,136 @@ void draw(){
 }  
 ```
 ![13-2.7.PNG](13-2.7.PNG)
+## 第十四週 正課程式
+## 互動程式設計
+### 第一題
+```C
+void setup(){//設定只做一次
+  float ans = random(60);//亂數，會是<60的浮點數
+  text (ans, 20, 20);//畫出ans
+}
+void draw(){//畫圖，每秒60次
+
+}
+```
+![14-2.1.PNG](14-2.1.PNG)
+### 第二題
+```C
+int ans=0;
+void setup(){//設定只做一次
+  size(300,300);
+  textSize(30);
+}
+void draw(){//畫圖，每秒60次
+  background(#DFFF62);
+  text (ans, 20, 30);
+}
+void mousePressed(){//按下去，就互動一次
+  ans = (int)random(60);//浮點數不能直接變整數
+}
+```
+![14-2.2.PNG](14-2.2.PNG)
+### 第三題
+```C
+int []a = {1,2,3,4,5,6,7,8,9,10};//Java
+int i1,i2;
+void setup(){
+  size(400,100);
+  textSize(30);
+}
+void draw(){
+  background(#EF62FF);
+  for(int i=0; i<10; i++){
+    text(a[i], i*40, 50);
+  }
+  rect(i1*40, 50, 30,30);
+  rect(i2*40, 50, 30,30);
+}
+void mousePressed(){
+  i1 = (int)random(10);
+  i2 = (int)random(10);
+  int temp=a[i1]; a[i1]=a[i2]; a[i2]=temp;
+}
+```
+![14-2.3.PNG](14-2.3.PNG)
+### 第四題
+```C
+int []a = new int[47];
+//int []a={1,2,3,4,5,6,7,8,9...45,46};
+void setup(){
+  size(500,200);
+  textSize(30);
+  
+  for(int i=0; i<47; i++) a[i] = i;
+  //讓a[i]的陣列裡，要先放整齊對應的字
+  
+  for(int i=0; i<100; i++){
+    int i1=(int)random(47);
+    int i2=(int)random(47);
+    int temp=a[i1]; a[i1]=a[i2]; a[i2]=temp;
+  }//作弊，先洗1000次 牌，先知道得獎號碼等下在掉下來
+}
+void draw(){
+  background(#FF62F8);
+  for(int i=0; i<5; i++){
+    text(a[i], i*80, 100);
+  }//秀出前5張牌
+}
+```
+![14-2.4.PNG](14-2.4.PNG)
+### 第五題
+```C
+int []a = new int[47];
+//int []a={1,2,3,4,5,6,7,8,9...45,46};
+void setup(){
+  size(500,200);
+  textSize(30);
+  
+  for(int i=0; i<47; i++) a[i] = i;
+  //讓a[i]的陣列裡，要先放整齊對應的字
+  
+  for(int i=0; i<100; i++){
+    int i1=(int)random(47);
+    int i2=(int)random(47);
+    int temp=a[i1]; a[i1]=a[i2]; a[i2]=temp;
+  }//作弊，先洗1000次 牌，先知道得獎號碼等下在掉下來
+}
+void draw(){
+  background(#FF62F8);
+  for(int i=0; i<5; i++){
+    text(a[i], i*80, 100);
+  }//秀出前5張牌
+}
+```
+![14-2.5.PNG](14-2.5.PNG)
+### 第六題
+```C
+int []a = new int[47];
+//int []a={1,2,3,4,5,6,7,8,9...45,46};
+void setup(){
+  size(500,200);
+  textSize(30);
+  
+  for(int i=0; i<47; i++) a[i] = i;
+  //讓a[i]的陣列裡，要先放整齊對應的字
+  
+  for(int i=0; i<100; i++){
+    int i1=(int)random(47);
+    int i2=(int)random(47);
+    int temp=a[i1]; a[i1]=a[i2]; a[i2]=temp;
+  }//作弊，先洗1000次 牌，先知道得獎號碼等下在掉下來
+}
+int N=0;
+void draw(){
+  textAlign(CENTER,CENTER);//文字對其:中間、中間
+  background(#FF62F8);
+  for(int i=0; i<N; i++){
+    fill(255); ellipse( i*80+40, 100, 55,55);
+    fill(0);   text(a[i], i*80+40, 100);//i*80=x座標，100=y座標
+  }//秀出前5張牌
+}
+void mousePressed(){
+  N++;
+}//利用mousePressed互動，決定秀幾顆
+```
+![14-2.6.PNG](14-2.6.PNG)
