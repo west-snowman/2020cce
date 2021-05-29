@@ -2381,6 +2381,93 @@ void draw(){
 }  
 ```
 ![13-2.7.PNG](13-2.7.PNG)
+
+## 第十四週 實習課程式
+## 基礎題：區間測速
+```C
+#include <stdio.h>
+int main()
+{
+	int n,time=3600*1.2;
+	scanf("%d",&n);
+	
+	printf("%d",time/n);
+}
+```
+![14-1.1.PNG](14-1.1.PNG)
+## 基礎題：把數字倒著印出來
+```C
+#include <stdio.h>
+int main()
+{
+	int a[10];
+	for(int i=0; i<10; i++){
+		scanf("%d",&a[i]);
+	}
+	
+	for(int i=9; i>=0; i--){
+		printf("%d ",a[i]);
+	}
+}
+```
+![14-1.2.PNG](14-1.2.PNG)
+## 基礎題：輸入西元y年，判斷該y年是否為閏年
+```C
+#include <stdio.h>
+int main()
+{
+	int y;
+	scanf("%d",&y);
+	
+	if	   (y%4==0 && y%100!=0) printf("%d is a leap year.\n",y);
+	else if(y%400!=0 && y%100==0) printf("%d is not a leap year.\n",y);
+	else printf("%d is not a leap year.\n",y);
+
+}
+```
+![14-1.3.PNG](14-1.3.PNG)
+## 基礎題：大位王
+```C
+#include <stdio.h>
+int main()
+{
+	int n,a;
+	scanf("%d",&n);
+	
+	if(n>=0){
+		if(n>=0 && n<10) printf("%d",n);
+		else if(n>=10   && n<100)   printf("%d\n",n/10);
+		else if(n>=100  && n<1000)  printf("%d\n",n/100);
+		else if(n>=1000 && n<10000) printf("%d\n",n/1000);
+	}
+	
+	else if(n<0){
+		a=n*(-1);
+		if     (a>=10   && a<100)   printf("%d\n",a/10);
+		else if(a>=100  && a<1000)  printf("%d\n",a/100);
+		else if(a>=1000 && a<10000) printf("%d\n",a/1000);
+	}
+
+}
+```
+![14-1.4.PNG](14-1.4.PNG)
+## 進階題：奇數反流
+```C
+#include <stdio.h>
+int main()
+{
+	int n,a[100]={};
+	scanf("%d",&n);
+	
+	for(int i=0; i<n; i++){
+		scanf("%d",&a[i]);
+	}
+	for(int i=n-1; i>=0; i--){
+		if(a[i]%2!=0) printf("%d ",a[i]);
+	}
+}
+```
+![14-1.5.PNG](14-1.5.PNG)
 ## 第十四週 正課程式
 ## 互動程式設計
 ### 第一題
