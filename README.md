@@ -2601,3 +2601,107 @@ void mousePressed(){
 }//利用mousePressed互動，決定秀幾顆
 ```
 ![14-2.6.PNG](14-2.6.PNG)
+## 第十五週 正課程式
+## 互動程式設計
+### 第一題
+```C
+void setup(){//設定只做1次
+  size(400,200);
+}
+void draw(){//畫圖，每秒60frame
+  int s = second();//0~59秒
+  if(s%2==0) background(255,0,0);
+  else background(58,114,191);
+}
+```
+![15-2.1.PNG](15-2.1.PNG)
+### 第二題
+```C
+void setup(){
+  size(400,200);
+  textSize(40);//大字
+}
+void draw(){
+  int s = second();//s增加 0~59
+  background(58,114,191);
+  //text(59-s,100,100);// 59...0減少
+  text(10 - s%11, 100,100);
+    //      0...10 => 10...0
+}//10,9,8,7,6,5,4,3,2,1,0 共11數字
+```
+![15-2.2.PNG](15-2.2.PNG)
+### 第三題
+```C
+import processing.sound.*;
+SoundFile player;
+void setup(){
+  size(400,200);
+  player = new SoundFile(this,"tada.mp3");
+}
+void draw(){
+  background(51,114,191);
+}
+void mousePressed(){
+  player.play();
+}
+```
+![15-2.3.PNG](15-2.3.PNG)
+### 第四題
+```C
+import processing.sound.*;
+SoundFile player;
+void setup(){
+  size(400,200);
+  player = new SoundFile(this,"bell.mp3");
+}
+void draw(){
+  background(51,114,191);
+}
+void mousePressed(){
+  if( player.isPlaying() ){
+    player.stop();
+  }
+  else{
+    player.play();
+  }
+}
+```
+![15-2.4.PNG](15-2.4.PNG)
+### 第五題
+```C
+import processing.sound.*;
+SoundFile player;
+void setup(){
+  size(400,200);
+  textSize(40);//大字
+  player = new SoundFile(this,"tada.mp3");
+}
+void draw(){
+  int s = second();//s增加 0~59
+  background(58,114,191);
+  //text(59-s,100,100);// 59...0減少
+  text(10 - s%11, 100,100);
+  if(10-s%11 == 0 && !player.isPlaying()){
+    player.play();//如果有人撥，其他不要出聲
+  }
+    //      0...10 => 10...0
+}//10,9,8,7,6,5,4,3,2,1,0 共11數字
+```
+![15-2.5.PNG](15-2.5.PNG)
+### 第六題 
+### P5js
+```C
+function setup(){//設定只做1次
+  createCanvas(400,200);
+}
+function draw(){//畫圖，每秒60frame
+  let s = second();//0~59秒
+  if(s%2==0){
+    background(255,0,0);
+  }
+  else{ 
+    background(58,114,191);
+  }
+}
+```
+![15-2.6.PNG](15-2.6.PNG)
