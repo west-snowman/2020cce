@@ -2704,5 +2704,6 @@ function draw(){//畫圖，每秒60frame
   }
 }
 ```
+https://west-snowman.github.io/2020cce/test/
 ![15-2.6.PNG](15-2.6.PNG)
 ![15-2.7.PNG](15-2.7.PNG)
