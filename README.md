@@ -2601,6 +2601,8 @@ void mousePressed(){
 }//利用mousePressed互動，決定秀幾顆
 ```
 ![14-2.6.PNG](14-2.6.PNG)
+## 第十五週 實習課程式
+### 
 ## 第十五週 正課程式
 ## 互動程式設計
 ### 第一題
@@ -2707,3 +2709,181 @@ function draw(){//畫圖，每秒60frame
 https://west-snowman.github.io/2020cce/test/
 ![15-2.6.PNG](15-2.6.PNG)
 ![15-2.7.PNG](15-2.7.PNG)
+## 第十六週 實習課程式
+### 
+
+## 第十六週 正課程式
+### 第一題
+### step01-1
+```C
+void setup(){//設定，只做一次
+  size(400,200);
+}
+void draw(){//畫，每秒畫一次
+  background(#DE56FA);
+  ellipse(50,50, 80,80);
+//       圓心  寬 高
+}
+```
+![16-2.1.PNG](16-2.1.PNG)
+### 第二題
+### step01-2
+```C
+void setup(){//設定，只做一次
+  size(400,200);
+}
+void draw(){//畫，每秒畫60次
+  background(#DE56FA);
+  fill(255);
+  ellipse(50,50, 80,80);
+//       圓心  寬 高
+  fill(255,0,0);
+  float stop=mouseX/50.0;
+  text(stop, 100,100);//畫出字
+  arc(50,50 ,80,80, 0, stop);//畫出圓形
+//    圓形   寬 高 開始 結束
+}
+```
+![16-2.2.PNG](16-2.2.PNG)
+### 第三題
+### step01-3
+```C
+void setup(){//設定，只做一次
+  size(400,200);
+}
+void draw(){//畫，每秒畫60次
+  background(#DE56FA);
+  fill(255);
+  ellipse(50,50, 80,80);
+  //      圓心   寬 高
+  fill(255,0,0);
+  float start=mouseX/50.0;
+  textSize(40);
+  text(start, 100,100);
+  arc(50,50 ,80,80, 0+start, 0.1+start);//畫出圓形
+//    圓形   寬 高    開始      結束
+}
+```
+![16-2.3.PNG](16-2.3.PNG)
+### 第四題
+### step02-1
+```C
+void setup(){//設定，只做一次
+  size(400,200);
+}
+void draw(){//畫，每秒畫60次
+  background(#DE56FA);
+  fill(255);
+  ellipse(100,100, 180,180);
+  //      圓心   寬 高
+  fill(255,0,0);
+  float start=mouseX/50.0;
+  for(int i=0; i<24; i++){
+    float shift=2*PI*i/24.0;
+    if(i%3==0) fill(0);
+    if(i%3==1) fill(#F9FA56);
+    if(i%3==2) fill(255);
+    arc(100,100 ,180,180, shift+0+start, shift+PI/12+start);//畫出圓形
+  }
+}//   圓形   寬 高    開始      結束
+```
+![16-2.4.PNG](16-2.4.PNG)
+### 第五題
+### step02-2
+```C
+void setup(){//設定，只做一次
+  size(400,200);
+}
+void draw(){//畫，每秒畫60次
+  background(#DE56FA);
+  fill(255);
+  ellipse(100,100, 180,180);
+  //      圓心      寬  高
+  fill(255,0,0);
+  float start=mouseX/50.0;
+  for(int i=0; i<24; i++){
+    float shift=2*PI*i/24.0;
+    if(i%3==0) fill(0);
+    if(i%3==1) fill(#F9FA56);
+    if(i%3==2) fill(255);
+    if(i==0) fill(#FA7319);
+    arc(100,100 ,180,180, shift+0+start, shift+PI/12+start);//畫出圓形
+  }//    圓形     寬  高       開始              結束
+}
+```
+![16-2.5.PNG](16-2.5.PNG)
+### 第六題
+### step02-3
+```C
+void setup(){//設定，只做一次
+  size(400,200);
+}
+float start=0;
+void draw(){//畫，每秒畫60次
+  background(#DE56FA);
+  if(start<10) start+=0.01;
+  fill(255); text(start, 200,150);
+  for(int i=0; i<24; i++){
+    float shift=2*PI*i/24.0;
+    if(i%3==0) fill(0);
+    if(i%3==1) fill(#F9FA56);
+    if(i%3==2) fill(255);
+    if(i==0) fill(#FA7319);
+    arc(100,100 ,180,180, shift+0+start, shift+PI/12+start);//畫出圓形
+  }//    圓形     寬  高       開始              結束
+}
+```
+![16-2.6.PNG](16-2.6.PNG)
+### 第七題
+### step03-1
+```C
+void setup(){//設定，只做一次
+  size(400,200);
+}
+float start=0, v=0.07;//v是旋轉的速度
+void draw(){//畫，每秒畫60次
+  background(#DE56FA);
+  if(v > 0.001){//速度很慢時，停止轉動
+    start += v;//位置、速度、加速度
+    v *=0.99;//摩擦力，會讓速度變慢
+  }//if(start<10) start+=0.01;
+  fill(255); text(start, 200,150); text(v,200,170);
+  for(int i=0; i<24; i++){
+    float shift=2*PI*i/24.0;
+    if(i%3==0) fill(0);
+    if(i%3==1) fill(#F9FA56);
+    if(i%3==2) fill(255);
+    if(i==0) fill(#FA7319);
+    arc(100,100 ,180,180, shift+0+start, shift+PI/12+start);//畫出圓形
+  }//    圓形     寬  高       開始              結束
+}
+```
+![16-2.7.PNG](16-2.7.PNG)
+### 第八題
+### step03-2
+```C
+void setup(){//設定，只做一次
+  size(400,200);
+}
+float start=0, v;//v是旋轉的速度
+void mousePressed(){
+  v = random(1);
+}
+void draw(){//畫，每秒畫60次
+  background(#DE56FA);
+  if(v > 0.001){//速度很慢時，停止轉動
+    start += v;//位置、速度、加速度
+    v *=0.99;//摩擦力，會讓速度變慢
+  }//if(start<10) start+=0.01;
+  fill(255); text(start, 200,150); text(v,200,170);
+  for(int i=0; i<24; i++){
+    float shift=2*PI*i/24.0;
+    if(i%3==0) fill(0);
+    if(i%3==1) fill(#F9FA56);
+    if(i%3==2) fill(255);
+    if(i==0) fill(#FA7319);
+    arc(100,100 ,180,180, shift+0+start, shift+PI/12+start);//畫出圓形
+  }//    圓形     寬  高       開始              結束
+}
+```
+![16-2.8.PNG](16-2.8.PNG)
