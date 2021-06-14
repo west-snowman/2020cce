@@ -2602,7 +2602,112 @@ void mousePressed(){
 ```
 ![14-2.6.PNG](14-2.6.PNG)
 ## 第十五週 實習課程式
-### 
+### 基礎題：整數向量相加
+```C
+#include <stdio.h>
+int main()
+{
+	int n, a[101]={}, b[101]={};
+	scanf("%d",&n);
+	
+	for(int i=0; i<n; i++){
+		scanf("%d",&a[i]);
+	}
+	
+	for(int i=0; i<n; i++){
+		scanf("%d",&b[i]);
+	}
+	
+	for(int i=0; i<n; i++){
+		printf("%d ",a[i]+b[i]);
+	}
+}
+```
+![15-1.1.PNG](15-1.1.PNG)
+### 基礎題：平面兩座標的面積
+```C
+#include <stdio.h>
+int main()
+{
+	int x1,y1,x2,y2,a,b;
+	scanf("%d%d%d%d",&x1,&y1,&x2,&y2);
+
+	if(x2>x1) a=x2-x1;
+	else a=x1-x2;
+
+	if(y2>y1) b=y2-y1;
+	else b=y1-y2;
+
+	printf("%d",a*b);
+
+}
+```
+![15-1.2.PNG](15-1.2.PNG)
+### 基礎題：水杯接水
+```C
+#include <stdio.h>
+int main()
+{
+	int n,m,ans;
+	scanf("%d%d",&n,&m);
+	
+	if(n%m>0) ans=(n/m)+1;
+	else ans=n/m;
+	
+	printf("%d",ans);
+
+}
+```
+![15-1.3.PNG](15-1.3.PNG)
+### 進階題：秒數換算
+```C
+#include <stdio.h>
+int main()
+{
+	int a,h,s,m,b;
+	scanf("%d",&a);
+	
+	h=a/3600;
+	s=a%3600 /60;
+	m=a%60;
+	
+	printf("%02d:%02d:%02d",h,s,m);
+
+}
+```
+![15-1.4.PNG](15-1.4.PNG)
+### 進階題：億萬富翁
+```C
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+	char n[20];
+	int a=0;
+	scanf("%s",n);
+	a=strlen(n);
+	
+	if(a%3==1){
+		printf("%c",n[0]);
+		for(int i=1; i<a; i+=3){
+			printf(",%c%c%c",n[i],n[i+1],n[i+2]);
+		}
+	}
+	else if(a%3==2){
+		printf("%c%c",n[0],n[1]);
+		for(int i=2; i<a; i+=3){
+			printf(",%c%c%c",n[i],n[i+1],n[i+2]);
+		}
+	}
+	else if(a%3==0){
+		printf("%c%c%c",n[0],n[1],n[2]);
+		for(int i=3; i<a; i+=3){
+			printf(",%c%c%c",n[i],n[i+1],n[i+2]);
+		}
+	}
+}
+```
+![15-1.5.PNG](15-1.5.PNG)
 ## 第十五週 正課程式
 ## 互動程式設計
 ### 第一題
@@ -2710,8 +2815,132 @@ https://west-snowman.github.io/2020cce/test/
 ![15-2.6.PNG](15-2.6.PNG)
 ![15-2.7.PNG](15-2.7.PNG)
 ## 第十六週 實習課程式
-### 
+### 基礎題：整數最大值、最小值
+```C
+#include <stdio.h>
+int main()
+{
+	int n[100],a=0;
+	for(int i=0; i<100; i++){
+		scanf("%d",&n[i]);
+		if(n[i]==0) break;
+		else a++;
+	}
+	
+	for(int i=0; i<a; i++){
+		for(int j=i+1; j<a; j++){
+			if(n[i]<n[j]){
+				int temp=n[i];
+					n[i]=n[j];
+					n[j]=temp;
+			}
+		}
+	}
+	printf("[%d,%d]",n[a-1],n[0]);
+}
+```
+![16-1.1.PNG](16-1.1.PNG)
+### 基礎題：計算一組任意數目的整數的總和
+```C
+#include <stdio.h>
+int main()
+{
+	int n,ans=0;
+	for(int i=0; i<10000; i++){
+		scanf("%d",&n);
+		if(n>0) ans=ans+n;
+		else if(n==0) break;
+	}
+	
+	printf("%d",ans);
 
+}
+```
+![16-1.2.PNG](16-1.2.PNG)
+### 進階題：拆解輸入的正整數
+```C
+#include <stdio.h>
+int A(int a){
+	if(a>0) return a;
+	else return 0;
+}
+int main()
+{
+	int n,a[5]={};
+	scanf("%d",&n);
+	
+	if(n<20000 && n>9999){
+		a[0]=n%10;
+		a[1]=(n%100)-a[0];
+		a[2]=(n%1000)-(a[0]+a[1]);
+		a[3]=(n%10000)-(a[0]+a[1]+a[2]);
+		a[4]=(n/10000)*10000;
+		for(int i=0; i<5; i++){
+			printf("%d ",A(a[i]));
+		}
+	}
+	else if(n<10000 && n>999){
+		a[0]=n%10;
+		a[1]=(n%100)-a[0];
+		a[2]=(n%1000)-(a[0]+a[1]);
+		a[3]=(n/1000)*1000;
+		for(int i=0; i<4; i++){
+			printf("%d ",A(a[i]));
+		}
+	}
+	else if(n<1000 && n>99){
+		a[0]=n%10;
+		a[1]=(n%100)-a[0];
+		a[2]=(n/100)*100;
+		for(int i=0; i<3; i++){
+			printf("%d ",A(a[i]));
+		}
+	}
+	else if(n<100 && n>9){
+		a[0]=n%10;
+		a[1]=(n/10)*10;
+		for(int i=0; i<2; i++){
+			printf("%d ",A(a[i]));
+		}
+	}
+	else printf("%d ",A(n));
+}
+```
+![16-1.3.PNG](16-1.3.PNG)
+### 進階題：計算級數的值 
+```C
+#include <stdio.h>
+int main()
+{
+	int n,ans=1;
+	scanf("%d",&n);
+	
+	for(int i=1; i<=n; i++){
+		ans+=2*i+1;
+	}
+	printf("f(%d)=%d",n,ans);
+}
+```
+![16-1.4.PNG](16-1.4.PNG)
+### 進階題：大於漸增數列總和之最小整數
+```C
+#include <stdio.h>
+int main()
+{
+	int k,n=0;
+	scanf("%d",&k);
+	
+	for(int i=1; i<=k; i++){
+		n+=i;
+		if(n>k){
+			printf("%d",i);
+			break;
+		}
+	}
+
+}
+```
+![16-1.5.PNG](16-1.5.PNG)
 ## 第十六週 正課程式
 ### 第一題
 ### step01-1
