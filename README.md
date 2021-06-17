@@ -3116,3 +3116,166 @@ void draw(){//畫，每秒畫60次
 }
 ```
 ![16-2.8.PNG](16-2.8.PNG)
+## 第十七週 正課程式
+### 第一題
+### step01
+```C
+void setup(){//設定只做一次
+  size(400,200);
+  textSize(40);
+}
+String line="hello";//字串
+void draw(){//每秒60次
+  background(#D077E3);
+  text(line, 100,100);//可以將字串line畫出來
+  text("World",100,150);//也可以把字串畫出來
+}
+```
+![17-2.1.PNG](17-2.1.PNG)
+### 第二題
+### step02
+```C
+void setup(){//設定只做一次
+  size(400,200);
+  textSize(40);
+}
+String line="hello";//字串
+char c='9';
+void draw(){//每秒60次
+  background(#D077E3);
+  text(line+c+100, 100,100);//可以將字串line畫出來
+  text("World:"+key,100,150);//也可以把字串畫出來
+}//在這裡發現，字串的+ 其實是越接越長
+// key => 會對應你最後按下的鍵盤的鍵(字母、數字、符號)
+```
+![17-2.2.PNG](17-2.2.PNG)
+### 第三題
+### step03
+```C
+void setup(){
+  size(400,200);
+  textSize(40);
+}
+char c='9';
+int win=0; //0:no win , 1:win
+void draw(){
+  background(#D077E3);
+  text("Press:"+c, 100,100);
+  text("You  :"+key, 100,150);
+  if( c==key ) win=1;
+  else win=0;
+  
+  if( win==1 ) text("You Win!",100,50);
+}
+```
+![17-2.3.PNG](17-2.3.PNG)
+### 第四題
+### step04
+```C
+void setup(){
+  size(400,200);
+  textSize(40);
+}
+char c='9';
+String ans= "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+int win=0; //0:no win , 1:win
+void draw(){
+  background(#D077E3);
+  text("Press:"+c, 100,100);
+  text("You  :"+key, 100,150);
+  if( c==key ) win=1;
+  else win=0;
+  if( win==1 ){
+    text("You Win!",100,50);
+    int i = int(random(26+26));
+    c = ans.charAt(i); //亂數
+  }
+}
+```
+![17-2.4.PNG](17-2.4.PNG)
+### 第五題
+### step05
+```C
+void setup(){
+  size(400,200);
+  textSize(40);
+}
+int x=100, y=100;
+void draw(){
+  background(#D077E3);
+  rect(x,y,50,50);//畫方塊
+}//Q:需求，左鍵、右鍵
+
+void keyPressed(){
+  if( keyCode==LEFT ) x-=10;
+  if( keyCode==RIGHT ) x+=10;
+}
+```
+![17-2.5.PNG](17-2.5.PNG)
+### 第六題
+### step06
+```C
+void setup(){
+  size(400,200);
+  textSize(40);
+}
+float x=100, y=100, vx=0, vy=0;
+void draw(){
+  background(#D077E3);
+  rect(x,y,50,50);//畫方塊
+  x += vx;
+}//Q:需求，左鍵、右鍵
+
+void keyPressed(){
+  if( keyCode==LEFT ) vx-=1;
+  if( keyCode==RIGHT ) vx+=1;
+}
+void keyReleased(){
+  vx = 0;
+}
+```
+![17-2.6.PNG](17-2.6.PNG)
+### 第七題
+### step07
+```C
+String A="mother";
+String line="";
+
+void setup(){
+  size(400,300);
+  textSize(40);
+}
+
+void draw(){
+  background(0);
+  text(A, 100,100);
+  text(line + "|",100,150);
+}
+void keyPressed(){
+  line = line + key;
+}
+```
+![17-2.7.PNG](17-2.7.PNG)
+### 第八題
+### step08
+```C
+String A="mother";
+String line="";
+void setup(){
+  size(400,300);
+  textSize(40);
+}
+void draw(){
+  background(0);
+  text(A, 100,100);
+  text(line + "|",100,150);
+}
+void keyPressed(){
+  int len = line.length();//原字的長度
+  if( key>='a' && key<='z') line = line + key;//小寫
+  if( key>='A' && key<='Z') line = line + key;//大寫
+  if( key==ENTER){     };//比對字是否正確
+  if( key==BACKSPACE && len>0) line = line.substring(0,len-1);//倒退刪掉
+}//Q:如何把打錯的字，倒退刪掉... A:判斷 BACKSPACE時，要把line變短
+```
+![17-2.8.PNG](17-2.8.PNG)
