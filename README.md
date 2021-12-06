@@ -3279,3 +3279,557 @@ void keyPressed(){
 }//Q:如何把打錯的字，倒退刪掉... A:判斷 BACKSPACE時，要把line變短
 ```
 ![17-2.8.PNG](17-2.8.PNG)
+
+
+# 二年級 資料結構實務 上學期
+## 第三週 
+### UVA100 The 3n + 1 problem 
+```C
+#include <stdio.h>
+int CycleLength(int n)
+{
+	int length=1;
+	while(n!=1){
+		if(n%2==0){
+			n=n/2;
+			length++;
+		}
+		else{
+			n=3*n+1;
+			length++;
+		}
+	}
+	return length;
+}
+
+int main(void)
+{
+	int i, j, max;
+	while(scanf("%d%d",&i,&j)!=EOF){
+		max=1;
+		if(i>j){
+			for(int n=j; n<=i; n++){
+				int len = CycleLength(n);
+				if(len > max) max=len;
+			}
+		}
+		else{
+			for(int n=i; n<=j; n++){
+				int len = CycleLength(n);
+				if(len > max) max=len;
+			}
+		}
+		printf("%d %d %d\n",i,j,max);
+	}
+}
+```
+
+### UVA10783 Odd Sum 
+```C
+#include <stdio.h>
+int main()
+{
+	int n;
+	scanf("%d",&n);
+	
+	for(int i=0; i<n; i++){
+		int a,b,sum=0;
+		scanf("%d %d",&a,&b);
+		
+		for(int j=a; j<=b; j++){
+			if(j%2!=0) sum=sum+j;
+		}
+		
+		printf("Case %d: %d\n",i+1,sum);
+	}
+
+}
+```
+### UVA11417 GCD
+```C
+#include <stdio.h>
+int GCD(int i,int j)
+{
+	int a=i, b=j, c;
+	while(a%b!=0){
+		c=a%b;
+		a=b;
+		b=c;
+	}
+	return b;
+}
+
+int main(void)
+{
+	int n,all;
+	while(scanf("%d",&n)!=EOF){
+		if(n==0) break;
+		else{
+			all=0;
+			for(int i=1; i<n; i++){
+				for(int j=i+1; j<=n; j++){
+					all+=GCD(i,j);
+				}
+			}
+			printf("%d\n",all);
+		}
+	}
+}
+```
+
+## 第四週
+### UVA10035 Primary Arithmetic 
+```C
+#include <stdio.h>
+int main()
+{
+	while(1){
+		int a,b,n=0,carry=0;
+		scanf("%d%d",&a,&b);
+		if(a==0 && b==0) break;
+		
+		while(a+b){
+			if(a%10+b%10+carry>=10){
+				carry=1;
+				n++;
+			}
+			else{
+				carry=0;
+			}
+			a/=10;
+			b/=10;
+		}
+		
+		if(n==0) printf("No carry operation.\n");
+		else if(n==1) printf("1 carry operation.\n");
+		else printf("%d carry operations.\n",n);
+	}
+
+}
+```
+
+### UVA10055 Hashmat the brave warrior
+```C
+#include <stdio.h>
+int main()
+{
+	unsigned long long a,b;
+	while(scanf("%llu%llu",&a,&b)!=EOF){
+		unsigned long long n;
+		if(a>b){
+			n=a-b;
+			printf("%llu\n",n);
+		}
+		else{
+			n=b-a;
+			printf("%llu\n",n);
+		}
+	}
+
+}
+```
+
+### UVA10071 Back to High School Physics
+```C
+#include <stdio.h>
+int main()
+{
+	int a,b;
+	while(scanf("%d%d",&a,&b)!=EOF){
+		int n;
+		n=a*b*2;
+		printf("%d\n",n);
+	}
+
+}
+```
+### UVA10929 You can say 11 
+```C
+#include <stdio.h>
+int main()
+{
+	while(1){
+		char n[1001]={};
+		int a=0,b=0;
+		scanf("%s",n);
+		if(n[0]=='0') break;
+		
+		for(int i=0; n[i]; i+=2){
+			a+=n[i]-48;
+		}
+		for(int i=1; n[i]; i+=2){
+			b+=n[i]-48;
+		}
+		if((a-b)%11==0) printf("%s is a multiple of 11.\n",n);
+		else printf("%s is not a multiple of 11.\n",n);
+	}
+
+}
+```
+
+## 第五週
+### UVA10268 498' 
+```C
+#include <stdio.h>
+int a[500000];
+int main()
+{
+	int i, j, x, y;
+	while(scanf("%d",&x)!=EOF){
+		for(i=0;  ;i++){
+			scanf("%d",&a[i]);
+			if(getchar()=='\n') break;
+		}
+		
+		y=a[0]*i;
+		for(j=1; j<i; j++){
+			y = y*x + a[j]*(i-j);
+		}
+		printf("%d\n",y);
+	}
+	return 0;
+}
+```
+
+### UVA10812 Beat the Spread!
+```C
+#include <stdio.h>
+int main()
+{
+	int n;
+	scanf("%d",&n);
+	
+	for(int i=0; i<n; i++){
+		int a,b,m1=0,m2=0;
+		scanf("%d%d",&a,&b);
+		if(a<b) printf("impossible\n");
+		else
+		{
+			for(int j=0; j<=a; j++){
+				for(int k=0; k<=a; k++){
+					if(j+k==a && j-k==b)
+					{
+						m1=j;
+						m2=k;
+						printf("%d %d\n",m1,m2);
+					}
+				}
+			}
+			if(m1==0 && m2==0) printf("impossible\n");
+		}
+	}
+
+}
+```
+
+## 第六週 
+### UVA11063 B2-Sequence 
+```C
+#include <stdio.h>
+int main()
+{
+	int n,m=1,b[100];
+	while(scanf("%d",&n)!=EOF){
+		for(int i=0; i<n; i++){
+			scanf("%d",&b[i]);
+		}
+		
+		int s[n*n/2];
+		int k=0,isb2=0;
+		
+		for(int i=0; i<n-1; i++){
+			if(b[i]>b[i+1]) isb2=1;
+		}
+		
+		for(int i=0; i<n; i++){
+			for(int j=i; j<n; j++){
+				s[k]=b[i]+b[j];
+				k++;
+			}
+		}
+		
+		for(int i=0; i<k; i++){
+			for(int j=i+1; j<k; j++){
+				if(s[i]==s[j]){
+					isb2=1;
+					break;
+				}
+			}
+		}
+		
+		if(isb2==1) printf("Case #%d: It is not a B2-Sequence.\n",m);
+		else printf("Case #%d: It is a B2-Sequence.\n",m);
+		printf("\n");
+		m++;
+	}
+
+}
+```
+
+### UVA11764 Jumping Mario 
+```C
+#include <stdio.h>
+int main()
+{
+	int n,a,b=1;
+	scanf("%d",&n);
+	while(n--){
+		int jup=0,jdown=0;
+		scanf("%d",&a);
+		int wh[a];
+		for(int i=0; i<a; i++){
+			scanf("%d",&wh[i]);
+		}
+		for(int i=0; i<a-1; i++){
+			if(wh[i]<wh[i+1]) jup++;
+			if(wh[i]>wh[i+1]) jdown++;
+		}
+		printf("Case %d: %d %d\n",b,jup,jdown);
+		b++;
+	}
+
+}
+```
+
+### UVA12019 Doom's Day Algorithm
+### (1)
+```C
+#include <stdio.h>
+int monthdays[]={31,28,31,30,31,30,31,31,30,31,30,31};
+char wdnames[][20]={"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+int dooms[7]={1,94,157,220,283,346,365};
+int doomweek=1;
+
+int alldays(int m,int d)
+{
+	int days=0;
+	for(int i=0; i<m-1; i++){
+		days+=monthdays[i];
+	}
+	days+=d;
+	return days;
+}
+
+int main()
+{
+	int n,m,d;
+	scanf("%d",&n);
+	while(n--){
+		scanf("%d%d",&m,&d);
+		int xdays;
+		int tdays=alldays(m,d);
+		
+		if(tdays>dooms[0] && tdays<=dooms[1]){
+			xdays= dooms[1]-tdays;
+			xdays= 7-xdays%7+doomweek;
+			printf("%s\n",wdnames[xdays%7]);
+			continue;
+		}
+		
+		for(int i=1; i<6; i++){
+			if(tdays>dooms[i] && tdays<=dooms[i+1]){
+				int xdays= (tdays-dooms[i]+doomweek)%7;
+				printf("%s\n",wdnames[xdays%7]);
+				continue;
+			}
+		}
+	}
+}
+```
+### (2)
+```C
+#include <stdio.h>
+char week[][10]={"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+int monthday[12]={31,28,31,30,31,30,31,31,30,31,30,31};
+
+int main()
+{
+	int n,m,d;
+	scanf("%d",&n);
+	
+	while(n--){
+		scanf("%d %d",&m,&d);
+		int days=0;
+		for(int i=0; i<m-1; i++){
+			days+=monthday[i];
+		}
+		days+=d;
+		printf("%s\n",week[(days+5)%7]);
+	}
+
+}
+```
+
+## 第七週
+### UVA10008 What's Cryptanalysis?
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+	int n;
+	char str[100];
+	int a[26]={0};
+	
+	scanf("%d ",&n);
+	
+	for(int i=0; i<n; i++){
+		fgets(str,100,stdin);
+		for(int j=0; j<strlen(str); j++){
+			if(str[j]>='a' && str[j]<='z') str[j]=str[j]-32;
+			if(str[j]>='A' && str[j]<='Z') a[str[j]-'A']++;
+		}
+	}
+	
+	for(int i=0; i<26; i++){
+		int max=0;
+		for(int j=0; j<26; j++){
+			if(a[j]>a[max]) max=j;
+		}
+		if(a[max]!=0) printf("%c %d\n",max+'A',a[max]);
+		a[max]=0;
+	}
+	
+}
+```
+
+### UVA10221 Satellites 
+```C
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+	double s,a,PI=3.14159265358;
+	char n[4];
+	
+	while(scanf("%lf %lf %s",&s,&a,n)!=EOF){
+		s+=6440;
+		if(n[0]=='m'){
+			a/=60;
+		}
+		printf("%lf %lf\n",2*s*PI*a/360,2*s*sin(a*(PI/180)/2));
+	}
+
+}
+```
+
+### UVA10929 You can say 11 
+```C
+#include <stdio.h>
+int main()
+{
+	while(1){
+		char n[1000]={};
+		int a=0, b=0;
+		scanf("%s",n);
+		if(n[0]=='0') break;
+		
+		for(int i=0; n[i]; i+=2){
+			a+=n[i]-48;
+		}
+		
+		for(int i=1; n[i]; i+=2){
+			b+=n[i]-48;
+		}
+		
+		int ans=a-b;
+		if(ans<-1) ans=ans*(-1);
+		
+		if(ans%11==0)
+			printf("%s is a multiple of 11.\n",n);
+		else
+			printf("%s is not a multiple of 11.\n",n);
+	}
+}
+```
+
+### UVA11332 Summing Digits 
+```C
+#include <stdio.h>
+int main()
+{
+	while(1){
+		int n,sum=0;
+		scanf("%d",&n);
+		if(n==0) break;
+		
+		while(n){
+			sum+=n%10;
+			n/=10;
+			if(n==0 && sum>=10){
+				n=sum;
+				sum=0;
+			}
+		}
+		printf("%d\n",sum);
+	}
+
+}
+```
+
+### UVA1225 Digit Counting 
+```C
+#include <stdio.h>
+int main()
+{
+	int n,temp;
+	scanf("%d",&n);
+	
+	for(int i=0; i<n; i++){
+		int a,b[10]={};
+		scanf("%d",&a);
+		
+		for(int j=1; j<=a; j++){
+			if(j<10) b[j]++;
+			else{
+				temp=j;
+				while(temp){
+					b[temp%10]++;
+					temp/=10;
+				}
+			}
+		}
+		
+		for(int j=0; j<9; j++){
+			printf("%d ",b[j]);
+		}
+		
+		printf("%d\n",b[9]);
+	}
+
+}
+```
+
+### UVA272 TeX Quotes 
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+	char c;
+	int flag=1;
+	
+	while((c=getchar())!=EOF){
+		if(c=='"'){
+			if(flag){
+				printf("``");
+			}
+			else{
+				printf("''");
+			}
+			flag=!flag;
+		}
+		else{
+			printf("%c",c);
+		}
+	}
+
+}
+```
+
+## 第十週
