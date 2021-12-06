@@ -3833,3 +3833,282 @@ int main()
 ```
 
 ## 第十週
+### UVA10222 Decode the Mad man
+```C
+#include <stdio.h>
+int main()
+{
+	char a;
+	char b[4][15]={"`1234567890-=","qwertyuiop[]","asdfghjkl;'","zxcvbnm,./"};
+	
+	while(scanf("%c",&a)!=EOF){
+		if(a==' ' || a=='\n') printf("%c",a);
+		else{
+			if(a>='A' && a<='Z') a+=32;
+			for(int i=0; i<4; i++){
+				for(int j=2; b[i][j]!='\0'; j++){ //'\0'=>空字元
+					if(a==b[i][j]){
+						printf("%c",b[i][j-2]);
+						break;
+					}
+				}
+			}
+		}
+	}
+}
+```
+![W10_UVA10222.PNG](W10_UVA10222.PNG)
+
+## UVA10409 Die Game 
+```C
+#include <stdio.h>
+int main()
+{
+	int a;
+	while(1){
+		scanf("%d",&a);
+		if(a==0) break;
+		int u=1,d=6,n=2,s=5,w=3,e=4;
+		char b[6];	
+		for(int i=0; i<a; i++){
+			scanf("%s",b);
+			if(b[0]=='n'){
+				d=n;
+				n=u;
+				u=7-d;
+				s=7-n;
+			}
+			else if(b[0]=='s'){
+				d=s;
+				s=u;
+				u=7-d;
+				n=7-s;
+			}
+			else if(b[0]=='w'){
+				d=w;
+				w=u;
+				u=7-d;
+				e=7-w;
+			}
+			else{
+				d=e;
+				e=u;
+				u=7-d;
+				w=7-e;
+			}
+		}
+		printf("%d\n",u);
+	}
+}
+```
+![W10_UVA10409.PNG](W10_UVA10409.PNG)
+
+## UVA10415 Eb Alto Saxophone Player 
+```C
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+	int n;
+	scanf("%d",&n);
+	while(n--){
+		char a[14][12]={"c0111001111","d0111001110","e0111001100",
+						"f0111001000","g0111000000","a0110000000",
+						"b0100000000","C0010000000","D1111001110",
+						"E1111001100","F1111001000","G1111000000",
+						"A1110000000","B1100000000"};
+		char b[11]="0000000000";
+		int sum[10]={};
+		char c[201];
+		scanf("%s",c);
+		
+		for(int i=0; i<strlen(c); i++){
+			for(int j=0; j<14; j++){
+				if(c[i]==a[j][0]){
+					for(int k=0; k<10; k++){
+						if(b[k]<a[j][k+1]){
+							sum[k]++;
+						}
+						b[k]=a[j][k+1];
+					}
+				}
+			}
+		}
+		for(int i=0; i<9; i++){
+			printf("%d ",sum[i]);
+		}
+		printf("%d\n",sum[9]);
+	}
+}
+```
+![W10_UVA10415.PNG](W10_UVA10415.PNG)
+
+## 第十一週
+### UVA10041 Vito'sfamily 
+```C
+#include <stdio.h>
+int main()
+{
+	int n;
+	scanf("%d",&n);
+	while(n--){
+		int a;
+		scanf("%d",&a);
+		int b[a];
+		for(int i=0; i<a; i++){
+			scanf("%d",&b[i]);
+		}
+		
+		for(int i=0; i<a; i++){
+			for(int j=0; j<a-i-1; j++){
+				if(b[j]>b[j+1]){
+					int temp=b[j];
+						b[j]=b[j+1];
+						b[j+1]=temp;
+				}
+			}
+		}
+		
+		int m;
+		if(a%2==0) m= (b[a/2-1]+b[a/2])/2;
+		else m= b[(a+1)/2-1];
+		
+		int sum=0;
+		for(int i=0; i<a; i++){
+			if(b[i]>m) sum+=b[i]-m;
+			else sum+=m-b[i];
+		}
+		
+		printf("%d\n",sum);
+	}
+}
+```
+![W11_UVA10041.PNG](W11_UVA10041.PNG)
+
+## 第十二週
+### UVA10062 Tell me the frequencies!
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct DATA{
+	char a;
+	int b;
+};
+int compare(const void *a, const void *b)
+{
+	int b1=(*(DATA*)a).b, b2=(*(DATA*)b).b;
+	char a1=(*(DATA*)a).a, a2=(*(DATA*)b).a;
+	if     (b1>b2) return 1;
+	else if(b1<b2) return -1;
+	else if(a1>a2) return -1;
+	else if(a1<a2) return 1;
+	else return 0;
+}
+
+int main()
+{
+	char n[1001]={};
+	for(int i=0; gets(n); i++){
+		int sum=1;
+		DATA data[100]={};
+		if(i) printf("\n");
+		for(int j=0; n[j]; j++){
+			for(int k=0; k<sum; k++){
+				if(n[j]==data[k].a){
+					data[k].b++;
+					break;
+				}
+				else if(k==sum-1){
+					data[k].a=n[j];
+					data[k].b++;
+					sum++;
+					break;
+				}
+			}
+		}
+		sum--;
+		qsort(data,sum,sizeof(data[0]),compare);
+		for(int j=0; j<sum; j++){
+			printf("%d %d\n",data[j].a,data[j].b);
+		}
+	}
+}
+```
+![W12_UVA10062.PNG](W12_UVA10062.PNG)
+
+### UVA10420 List of Conquests 
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char name[2000][80];
+char others[80];
+
+int compare(const void *p1, const void *p2){
+	return strcmp((char*)p1,(char*)p2);
+}
+
+int main()
+{
+	int n;
+	scanf("%d",&n);
+	for(int i=0; i<n; i++){
+		scanf("%s",name[i]);
+		gets(others);
+	}
+	
+	qsort(name,n,80,compare);
+	
+	int ans=1;
+	printf("%s ",name[0]);
+	for(int i=0; i<n-1; i++){
+		if(strcmp(name[i],name[i+1])!=0){//not same
+			printf("%d\n",ans);
+			printf("%s ",name[i+1]);
+			ans=1;
+		}
+		else ans++;
+	}
+	printf("%d\n",ans);
+}
+```
+![W12_UVA10420.PNG](W12_UVA10420.PNG)
+
+### UVA11321 Sort! Sort!! and Sort!!!
+```C
+#include <stdio.h>
+int a[10001];
+int swap(int i,int j)
+{
+	int temp=a[i];
+		a[i]=a[j];
+		a[j]=temp;
+}
+int main()
+{
+	int n,m;
+	while(scanf("%d %d",&n,&m)==2)
+	{
+		for(int i=0; i<n; i++){
+			scanf("%d",&a[i]);
+		}
+		
+		for(int i=0; i<n; i++){
+			for(int j=i+1; j<n; j++){
+				if(a[i]%m>a[j]%m) swap(i,j);
+				if(a[i]%m==a[j]%m && a[i]%2==0 && a[j]%2!=0) swap(i,j);
+				if(a[i]%m==a[j]%m && a[i]%2!=0 && a[j]%2!=0 && a[i]<a[j]) swap(i,j);
+				if(a[i]%m==a[j]%m && a[i]%2==0 && a[j]%2==0 && a[i]>a[j]) swap(i,j);
+			}
+		}
+		printf("%d %d\n",n,m);
+		for(int i=0; i<n; i++){
+			printf("%d\n",a[i]);
+		}
+		
+	}
+}
+```
+![W12_UVA11321.PNG](W12_UVA11321.PNG)
